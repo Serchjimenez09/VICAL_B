@@ -1,0 +1,10 @@
+book_filename: "VICAL"
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Equación '
+  ui:
+    chapter_name: "Capitulo "
+delete_merged_file: true
+output_dir: "VICAL"

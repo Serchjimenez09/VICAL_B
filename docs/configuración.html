@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es-MX" xml:lang="es-MX">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitulo 4 Configuración | GUIA DE VICAL: Calculadora de indices de vegetación</title>
+  <meta name="description" content="Esta es una guia de lo que se pueda hacer con VICAL" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitulo 4 Configuración | GUIA DE VICAL: Calculadora de indices de vegetación" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Esta es una guia de lo que se pueda hacer con VICAL" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitulo 4 Configuración | GUIA DE VICAL: Calculadora de indices de vegetación" />
+  
+  <meta name="twitter:description" content="Esta es una guia de lo que se pueda hacer con VICAL" />
+  
+
+<meta name="author" content="INIFAP: Sergio Jiménez-Jiménez; Mariana Marcial-Pablo; Waldo Ojeda-Bustamante; Ernesto Sifuentes-Ibarra; Marco Inzunza-Ibarra, Ignacio Sánchez-Cohen" />
+
+
+<meta name="date" content="2022-06-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Iveg.html"/>
+<link rel="next" href="implementación.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="https://inifapcenidraspa.users.earthengine.app/view/vical"><img src="./images/LOGO.png" height="43"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenidos</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#alcances"><i class="fa fa-check"></i><b>1.1</b> Alcances</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Sat.html"><a href="Sat.html"><i class="fa fa-check"></i><b>2</b> Satélites- Colección de imagenes</a></li>
+<li class="chapter" data-level="3" data-path="Iveg.html"><a href="Iveg.html"><i class="fa fa-check"></i><b>3</b> Indices de Vegetación</a></li>
+<li class="chapter" data-level="4" data-path="configuración.html"><a href="configuración.html"><i class="fa fa-check"></i><b>4</b> Configuración</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="configuración.html"><a href="configuración.html#configuración-general"><i class="fa fa-check"></i><b>4.1</b> Configuración General</a></li>
+<li class="chapter" data-level="4.2" data-path="configuración.html"><a href="configuración.html#usando-poligonos-digitalizados"><i class="fa fa-check"></i><b>4.2</b> Usando poligonos digitalizados</a></li>
+<li class="chapter" data-level="4.3" data-path="configuración.html"><a href="configuración.html#usando-archivo-vector"><i class="fa fa-check"></i><b>4.3</b> Usando archivo vector</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="implementación.html"><a href="implementación.html"><i class="fa fa-check"></i><b>5</b> Implementación</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="implementación.html"><a href="implementación.html#PriVis"><i class="fa fa-check"></i><b>5.1</b> Primeras visualizaciones</a></li>
+<li class="chapter" data-level="5.2" data-path="implementación.html"><a href="implementación.html#navegar-entre-imagenes"><i class="fa fa-check"></i><b>5.2</b> Navegar entre imagenes</a></li>
+<li class="chapter" data-level="5.3" data-path="implementación.html"><a href="implementación.html#visualización-del-mapa-de-iv"><i class="fa fa-check"></i><b>5.3</b> Visualización del mapa de IV</a></li>
+<li class="chapter" data-level="5.4" data-path="implementación.html"><a href="implementación.html#series-de-tiempo"><i class="fa fa-check"></i><b>5.4</b> Series de tiempo</a></li>
+<li class="chapter" data-level="5.5" data-path="implementación.html"><a href="implementación.html#descargar-información"><i class="fa fa-check"></i><b>5.5</b> Descargar información</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vical-en-gee.html"><a href="vical-en-gee.html"><i class="fa fa-check"></i><b>6</b> VICAL en GEE</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vical-en-gee.html"><a href="vical-en-gee.html#CImg"><i class="fa fa-check"></i><b>6.1</b> Coleccion de imagenes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="vical-en-gee.html"><a href="vical-en-gee.html#landsat"><i class="fa fa-check"></i><b>6.1.1</b> Landsat</a></li>
+<li class="chapter" data-level="6.1.2" data-path="vical-en-gee.html"><a href="vical-en-gee.html#sentinel-2"><i class="fa fa-check"></i><b>6.1.2</b> Sentinel-2</a></li>
+<li class="chapter" data-level="6.1.3" data-path="vical-en-gee.html"><a href="vical-en-gee.html#LanSen"><i class="fa fa-check"></i><b>6.1.3</b> Landsat y Sentinel-2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="vical-en-gee.html"><a href="vical-en-gee.html#indices-de-vegetación"><i class="fa fa-check"></i><b>6.2</b> Indices de vegetación</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cita.html"><a href="cita.html"><i class="fa fa-check"></i><b>7</b> CITA</a></li>
+<li class="chapter" data-level="8" data-path="actualizaciones.html"><a href="actualizaciones.html"><i class="fa fa-check"></i><b>8</b> Actualizaciones</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="actualizaciones.html"><a href="actualizaciones.html#de-mayo-del-2022"><i class="fa fa-check"></i><b>8.1</b> 02 de Mayo del 2022</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GUIA DE VICAL: Calculadora de indices de vegetación</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="configuración" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capitulo 4</span> Configuración<a href="configuración.html#configuración" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Antes de calcular los IVs en VICAL se deben seleccionar una serie de parámetros que corresponden a la configuración.</p>
+<div id="configuración-general" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Configuración General<a href="configuración.html#configuración-general" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En principio, para estimar el IV de cualquier superficie el usuario tiene dos opciones: <em>i) digitalizar polígonos o ii) Usar un archivo vector de GEE</em>. Además, es necesario configurar una serie de opciones, estos son:</p>
+<strong>1). Rango de fechas: </strong> Se debe ingresar una fecha inicial y final en que desea estimar estos índices de vegetación (Figura <a href="configuración.html#fig:figG1">4.1</a>). La fecha deben tener el siguiente formado: <em>Cuatro dígitos para el año, dos para el mes y dos para el día (AAAA-MM-DD)</em>.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG1"></span>
+<img src="images/Figure1.PNG" alt="TexBox de Rango de fechas"  />
+<p class="caption">
+Figura 4.1: TexBox de Rango de fechas
+</p>
+</div>
+<p>VICAL utiliza este intervalo de fechas para buscar imágenes disponibles y con estas estimar valores del índice de vegetación. VICAL por defecto establece la fecha final como la fecha actual y la fecha inicial un año atrás a la fecha actual.</p>
+<strong>2) porcentaje de nubes: </strong> Se debe ingresar un umbral máximo de nubes en las imágenes, por defecto es establecido en 30% (Figura <a href="configuración.html#fig:figG2">4.2</a>).
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG2"></span>
+<img src="images/Figure2.PNG" alt="TexBox de umbral de porcentaje de nubes"  />
+<p class="caption">
+Figura 4.2: TexBox de umbral de porcentaje de nubes
+</p>
+</div>
+<p><strong>3). Satélite: </strong> de los satélites LandSat y Sentinel-2 (descritos en la sección <a href="Sat.html#Sat">2</a> <strong>Satélite</strong>), se derivan cuatro opciones disponibles (Figura <a href="configuración.html#fig:figG3">4.3</a>):</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG3"></span>
+<img src="images/Figure3.PNG" alt="Satelites y sensores disponibles en VICAL"  />
+<p class="caption">
+Figura 4.3: Satelites y sensores disponibles en VICAL
+</p>
+</div>
+<div class="line-block"> <em><strong>i) Landsat (7, 8 y 9):</strong> proporciona imágenes LandSat de los sensores 7, 8 y 9 que se encuentren dentro del intervalo definido y con un umbral máximo de nubes. Los datos de Landsat 7 ETM+ se ajustaron espectralmente a las bandas espectrales de Landsat 8 y 9 (OLI y OLI-2) usando el procedimiento recomendado por <span class="citation">(<a href="#ref-Roy2016" role="doc-biblioref">Roy 2016</a>)</span>, para generar un solo conjunto de datos armonizados.</em></div>
+<div class="line-block"> <em><strong>ii) Sentinel-2:</strong> solo proporciona imágenes Sentinel-2 que se encuentren dentro del intervalo definido y con el umbral máximo de nubes.</em></div>
+<div class="line-block"> <em><strong>iii) Landsat (7, 8 y 9) y Sentinel-2</strong>: Proporciona tanto imágenes Landsat (7, 8 y 9) como Sentinel-2. Los datos MSI (Sentinel-2) se ajustan espectralmente a las bandas espectrales Landsat 8 y 9 (OLI y OLI-2) usando el procedimiento recomendado por <span class="citation">(<a href="#ref-Claverie2018" role="doc-biblioref">Claverie 2018</a>)</span>. Los datos de Landsat 7 ETM+ se ajustaron espectralmente a las bandas espectrales de Landsat 8 y 9 (OLI y OLI-2) usando el procedimiento recomendado por <span class="citation">(<a href="#ref-Roy2016" role="doc-biblioref">Roy 2016</a>)</span>. De tal manera que se genera un solo conjunto de datos armonizados.</em></div>
+<div class="line-block"> <em><strong>iv) Landsat (4 y 5):</strong> Proporciona imágenes LandSat de los sensores 4 y 5 que se encuentren dentro del intervalo definido y con un umbral máximo de nubes.</em></div>
+<strong>4). Índice de vegetación: </strong> El usuario puede seleccionar entre 23 IVs comúnmente empleadas en aplicaciones agrícolas (Figura <a href="configuración.html#fig:figG4">4.4</a>), para revisar las fórmulas de cada índice de vegetación ver sección <a href="Iveg.html#Iveg">3</a> <strong>Índices de vegetación.</strong>.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG4"></span>
+<img src="images/Figure5.PNG" alt="Selector de Indices de vegetción"  />
+<p class="caption">
+Figura 4.4: Selector de Indices de vegetción
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG5"></span>
+<img src="images/Figure5.1.PNG" alt="Coeficientes de IV"  />
+<p class="caption">
+Figura 4.5: Coeficientes de IV
+</p>
+</div>
+<p><strong>5) otras funciones adicionales: </strong> VICAL permite seleccionar opciones adicionales (Figura <a href="configuración.html#fig:figG6">4.6</a>), por ejemplo:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG6"></span>
+<img src="images/Figure9.PNG" alt="Opciones en VICAL"  />
+<p class="caption">
+Figura 4.6: Opciones en VICAL
+</p>
+</div>
+<div class="line-block"><em><strong>i) Usar un archivo vector de GEE:</strong> Como se mencionó en la parte inicial de esta sección, el usuario puede usar un archivo vector de GEE (tipo polígono). Cuando se selecciona esta opción se debe ingresar una dirección URL del archivo vector que ha sido cargado a GEE (Figura <a href="configuración.html#fig:figG7">4.7</a>), de esta manera, aunque existan polígonos digitalizados VICAL reconoce que se deben calcular los índices de vegetación sobre los polígonos del archivo vector. </em></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG7"></span>
+<img src="images/Figure10.PNG" alt="URL archivo vector de GEE"  />
+<p class="caption">
+Figura 4.7: URL archivo vector de GEE
+</p>
+</div>
+<div class="line-block"><em><strong>ii) Mapa de regresión:</strong> El usuario puede obtener como resultado un mapa de regresión tomando como base los valores de los IVs calculados, para ello puede seleccionar entre cuatro tipos de regresión (Figura <a href="configuración.html#fig:figG8">4.8</a>): Lineal, cuadrático, potencial y exponencial y después ingresar los coeficientes de regresión.</em></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG8"></span>
+<img src="images/Figure8.PNG" alt="Funciones consideradas"  />
+<p class="caption">
+Figura 4.8: Funciones consideradas
+</p>
+</div>
+<div class="line-block"><em><strong>iii) Filtrar imágenes que cubran todo el polígono:</strong> cuando se active esta opción se filtrar imágenes que cubran completamente el polígono(s) de la zona, de otra manera, se muestra imágenes aunque cubran un cierto porcentaje de la zona. Esta opción es útil para polígonos que abarcan superficies grandes (cientos de has).</em><br />
+<em><strong>iv) Calcular factor de ponderación:</strong> Es la relación entre el valor del índice en un píxel y el promedio del índice en el polígono (parcela). Se calcula por cada polígono digitalizado. Este factor en una parcela agrícola es un indicador normalizado del potencial productivo de cada píxel de una imagen. </em></div>
+<p><strong>5) Calcular: </strong>: Cuando se tenga configurado las opciones se debe dar clic en <strong>calculate</strong> y se mostraran mínimo tres capas en el mapa: <em><strong>i) imagen RGB de la primera imagen encontrada en el intervalo establecido, ii) índices de vegetación</strong>. </em></p>
+</div>
+<div id="usando-poligonos-digitalizados" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Usando poligonos digitalizados<a href="configuración.html#usando-poligonos-digitalizados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>EL usuario puede digitalizar cualquier parcela (polígonos) usando las herramientas de dibujo que se encuentran en la esquina superior izquierda del mapa (Figura <a href="configuración.html#fig:figG9">4.9</a>). El programa reconoce que se deben calcular los índices de vegetación sobre estos polígonos.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG9"></span>
+<img src="images/Figure11.PNG" alt="Herramientas de dibujo" width="75%" />
+<p class="caption">
+Figura 4.9: Herramientas de dibujo
+</p>
+</div>
+<p>Esta opción es útil cuando son pocas parcelas donde se desea estimar IVs (Figura <a href="configuración.html#fig:figG10">4.10</a>). O bien, también es útil cuando se desea descargar índices de vegetación de una zona en particular sin importar los limites parcelarios (Figura <a href="configuración.html#fig:figG11">4.11</a>).</p>
+Para editar el polígono o crear un nuevo polígono se debe dar clic en los botones <em>“Edit y New Polygon”</em> respectivamente. Estas opciones están disponibles después de que se ha realizado un calculo.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG10"></span>
+<img src="images/Figure12.PNG" alt="Parcelas digitalizadas" width="75%" />
+<p class="caption">
+Figura 4.10: Parcelas digitalizadas
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG11"></span>
+<img src="images/Figure13.PNG" alt="poligono digitalizados" width="75%" />
+<p class="caption">
+Figura 4.11: poligono digitalizados
+</p>
+</div>
+</div>
+<div id="usando-archivo-vector" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Usando archivo vector<a href="configuración.html#usando-archivo-vector" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para esta opción, el usuario debe ingresar el <strong>URL</strong> del archivo vector con el que desea realizar los cálculos; esto indica que debe tener una cuenta en GEE e importar un archivo vector tipo polígono en su cuenta.</p>
+<p>La URL se puede obtener dando clic izquierdo sobre el archivo que se encuentra en la pestalla <em><strong>Assets</strong></em> de su cuenta de GEE (Figura <a href="configuración.html#fig:figG12">4.12</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG12"></span>
+<img src="images/Figure14.PNG" alt="detalles en GEE del archivo vector" width="75%" />
+<p class="caption">
+Figura 4.12: detalles en GEE del archivo vector
+</p>
+</div>
+<p>Una cuestión importante, para que el archivo vector se puede emplear en <strong>VICAL</strong> debe tener tener activado la casilla “Anyone can read” (Figura <a href="configuración.html#fig:figG13">4.13</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figG13"></span>
+<img src="images/Figure6.PNG" alt="poligono digitalizadas" width="75%" />
+<p class="caption">
+Figura 4.13: poligono digitalizadas
+</p>
+</div>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Claverie2018" class="csl-entry">
+Claverie, et al, Ju. 2018. <em>The Harmonized Landsat and Sentinel-2 surface reflectance data set. Remote Sensing of Environment, 219, 145–161</em>.<a href=" https://doi.org/10.1016/J.RSE.2018.09.002"> https://doi.org/10.1016/J.RSE.2018.09.002</a>.
+</div>
+<div id="ref-Roy2016" class="csl-entry">
+Roy, et al, Kovalskyy. 2016. <em>Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity. Remote Sensing of Environment, 185, 57–70</em>.<a href=" https://doi.org/10.1016/J.RSE.2015.12.024"> https://doi.org/10.1016/J.RSE.2015.12.024</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Iveg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="implementación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Configuracion.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["VICAL.pdf", "VICAL.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

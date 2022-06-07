@@ -1,0 +1,8 @@
+# Actualizaciones
+Si tiene preguntas o encuentra que las actualizaciones introducen errores, envíe un correo electrónico a Justin a: jimenez.sergio@inifap.gob.mx
+
+## 02 de Mayo del 2022
+
+-El usuario puede ingresar la **URL** de un archivo vector cargado desde GEE.
+-Se puede exportar el polígono digitalizado en formato _.kml._
+

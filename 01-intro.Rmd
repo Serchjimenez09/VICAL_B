@@ -1,0 +1,28 @@
+# Introducción  {#intro}
+
+El objetivo de esta sección es presentar los alcances de **VICAL** y como utilizarlo, ademas de, como implementar las librerías en cualquier Script de GEE. Se describen los índices de vegetación considerados en el programa y las colecciones de imagenes que se usan para calcularlo, cuáles son los resultados y cómo están formateados.
+
+```{r fig3, echo=FALSE, out.width="25%", message=FALSE, warning=FALSE}
+knitr::include_graphics("./images/1.png")
+```
+
+VICAL fue desarrollado dentro de GEE <https://earthengine.google.com/> y fue codificado en JavaScript desde Earth Engine Code Editor <https://code.earthengine.google.com/>.
+
+
+## Alcances
+Los principios de diseño para **VICAL** fueron que deberia proporcionar para cualquier área (definida por el usuario) donde exista una imagen Landsat o Sentinel-2 la estimación de diferentes IVs aplicados en agricultura, además, de graficar la serie de tiempo de dicho índice para esa zona en el rango de fecha establecido por el usuario. **Todo sin que el usuario escriba una sola linea de codigo dentro de GEE o que lleve a cabo el pre-procesamiento de las imágenes.**
+
+VICAL tiene tres principales funciones:
+
+**1.-** Mapas de índices de vegetación usando imágenes (libres de nubes) LandSat (4, 5, 7,8 y 9) y Sentinel-2 de cualquier poligono digitalizado por el usuario o archivo vector. 
+
+**2.-** El despliegue de series de tiempo de Indices de vegetación (media y desviación estándar) para polígonos (dibujados por el usuario o archivo vector) en un tiempo fijo con imagenes Landsat, sentinel o ambos. 
+
+**3.-** Mapa de regresiones usando los IVs o productividad relativa. 
+
+En esta herramientas, se puede configurar algunos coeficientes de IV como en EVI, SAVI, entre otros.
+
+Creemos que la herramienta **VICAL** ahorra tiempo y evita el procedimiento trivial repetitivo asociado a los cálculos de IVs “manuales” (descarga de imágenes, procesamiento, etc.), que demanda diferentes tipos de software, que pueden conducir a errores humanos. 
+
+VICAL puede ser empleado para extraer rápidamente valores de índices de vegetación para su calibración en variables biofísicas agrícolas. 
+

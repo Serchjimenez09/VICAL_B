@@ -1,0 +1,114 @@
+# Configuración
+
+Antes de calcular los IVs en VICAL se deben seleccionar una serie de parámetros que corresponden a la configuración. 
+
+## Configuración General 
+En principio, para estimar el IV de cualquier superficie el usuario tiene dos opciones: _i) digitalizar polígonos o ii) Usar un archivo vector de GEE_. Además, es necesario configurar una serie de opciones, estos son:
+
+**1). Rango de fechas: ** Se debe ingresar una fecha inicial y final en que desea estimar estos índices de vegetación (Figura \@ref(fig:figG1)). La fecha deben tener el siguiente formado: _Cuatro dígitos para el año, dos para el mes y dos para el día (AAAA-MM-DD)_.
+```{r figG1, fig.cap='TexBox de Rango de fechas', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure1.png")
+```
+
+
+VICAL utiliza este intervalo de fechas para buscar imágenes disponibles y con estas estimar valores del índice de vegetación. VICAL por defecto establece la fecha final como la fecha actual y la fecha inicial un año atrás a la fecha actual.
+
+**2) porcentaje de nubes: ** Se debe ingresar un umbral máximo de nubes en las imágenes, por defecto es establecido en 30% (Figura \@ref(fig:figG2)).
+```{r figG2, fig.cap='TexBox de umbral de porcentaje de nubes', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure2.png")
+```
+
+
+**3). Satélite: ** de los satélites LandSat y Sentinel-2 (descritos en la sección \@ref(Sat) **Satélite**), se derivan cuatro opciones disponibles (Figura \@ref(fig:figG3)):
+
+```{r figG3, fig.cap='Satelites y sensores disponibles en VICAL', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure3.png")
+```
+
+
+|  _**i) Landsat (7, 8 y 9):** proporciona imágenes LandSat de los sensores 7, 8 y 9 que se encuentren dentro del intervalo definido y con un umbral máximo de nubes. Los datos de Landsat 7 ETM+ se ajustaron espectralmente a las bandas espectrales de Landsat 8 y 9 (OLI y OLI-2) usando el procedimiento recomendado por [@Roy2016], para generar un solo conjunto de datos armonizados._ 
+
+|  _**ii)	Sentinel-2:** solo proporciona imágenes Sentinel-2 que se encuentren dentro del intervalo definido y con el umbral máximo de nubes._
+
+|  _**iii)	Landsat (7, 8 y 9) y Sentinel-2**: Proporciona tanto imágenes Landsat (7, 8 y 9) como Sentinel-2. Los datos MSI (Sentinel-2) se ajustan espectralmente a las bandas espectrales Landsat 8 y 9 (OLI y OLI-2) usando el procedimiento recomendado por [@Claverie2018]. Los datos de Landsat 7 ETM+ se ajustaron espectralmente a las bandas espectrales de Landsat 8 y 9 (OLI y OLI-2) usando el procedimiento recomendado por [@Roy2016]. De tal manera que se genera un solo conjunto de datos armonizados._ 
+
+|  _**iv)	Landsat (4 y 5):** Proporciona imágenes LandSat de los sensores 4 y 5 que se encuentren dentro del intervalo definido y con un umbral máximo de nubes._
+  
+
+
+**4). Índice de vegetación: ** El usuario puede seleccionar entre 23 IVs comúnmente empleadas en aplicaciones agrícolas (Figura \@ref(fig:figG4)), para revisar las fórmulas de cada índice de vegetación ver sección \@ref(Iveg) **Índices de vegetación.**.
+```{r figG4, fig.cap='Selector de Indices de vegetción', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure5.png")
+```
+
+```{r figG5, fig.cap='Coeficientes de IV', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure5.1.png")
+```
+
+
+**5) otras funciones adicionales: ** VICAL permite seleccionar opciones adicionales (Figura \@ref(fig:figG6)), por ejemplo:
+
+
+```{r figG6, fig.cap='Opciones en VICAL', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure9.png")
+```
+
+
+| _**i)	Usar un archivo vector de GEE:** Como se mencionó en la parte inicial de esta sección, el usuario puede usar un archivo vector de GEE (tipo polígono). Cuando se selecciona esta opción se debe ingresar una dirección URL del archivo vector que ha sido cargado a GEE (Figura \@ref(fig:figG7)), de esta manera, aunque existan polígonos digitalizados VICAL reconoce que se deben calcular los índices de vegetación sobre los polígonos del archivo vector. _
+
+```{r figG7, fig.cap='URL archivo vector de GEE', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure10.png")
+```
+
+| _**ii)	Mapa de regresión:** El usuario puede obtener como resultado un mapa de regresión tomando como base los valores de los IVs calculados, para ello puede seleccionar entre cuatro tipos de regresión (Figura \@ref(fig:figG8)): Lineal, cuadrático, potencial y exponencial y después ingresar los coeficientes de regresión._ 
+
+```{r figG8, fig.cap='Funciones consideradas', echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure8.png")
+```
+
+
+| _**iii)	Filtrar imágenes que cubran todo el polígono:** cuando se active esta opción se filtrar imágenes que cubran completamente el polígono(s) de la zona, de otra manera, se muestra imágenes aunque cubran un cierto porcentaje de la zona. Esta opción es útil para polígonos que abarcan superficies grandes (cientos de has)._
+ 
+| _**iv)	Calcular factor de ponderación:** Es la relación entre el valor del índice en un píxel y el promedio del índice en el polígono (parcela). Se calcula por cada polígono digitalizado. Este factor en una parcela agrícola es un indicador normalizado del potencial productivo de cada píxel de una imagen. _
+
+
+**5) Calcular: **: Cuando se tenga configurado las opciones se debe dar clic en **calculate** y se mostraran mínimo tres capas en el mapa: _**i) imagen RGB de la primera imagen encontrada en el intervalo establecido, ii) índices de vegetación**. _
+
+
+## Usando poligonos digitalizados
+EL usuario puede digitalizar cualquier parcela (polígonos) usando las herramientas de dibujo que se encuentran en la esquina superior izquierda del mapa (Figura \@ref(fig:figG9)). El programa reconoce que se deben calcular los índices de vegetación sobre estos polígonos.
+
+```{r figG9, fig.cap='Herramientas de dibujo', echo=FALSE, out.width="75%", message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure11.png")
+```
+
+Esta opción es útil cuando son pocas parcelas donde se desea estimar IVs (Figura \@ref(fig:figG10)). O bien, también es útil cuando se desea descargar índices de vegetación de una zona en particular sin importar los limites parcelarios (Figura \@ref(fig:figG11)). 
+
+Para editar el polígono o crear un nuevo polígono se debe dar clic en los botones _“Edit y New Polygon”_ respectivamente. Estas opciones están disponibles después de que se ha realizado un calculo.
+```{r figG10, fig.cap='Parcelas digitalizadas', echo=FALSE, out.width="75%", message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure12.png")
+```
+
+```{r figG11, fig.cap='poligono digitalizados', echo=FALSE, out.width="75%", message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure13.png")
+```
+
+
+## Usando archivo vector
+
+Para esta opción, el usuario debe ingresar el **URL** del archivo vector con el que desea realizar los cálculos; esto indica que debe tener una cuenta en GEE e importar un archivo vector tipo polígono en su cuenta.
+
+La URL se puede obtener dando clic izquierdo sobre el archivo que se encuentra en la pestalla _**Assets**_ de su cuenta de GEE (Figura \@ref(fig:figG12)).
+
+```{r figG12, fig.cap='detalles en GEE del archivo vector', echo=FALSE, out.width="75%", message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure14.png")
+```
+
+
+Una cuestión importante, para que el archivo vector se puede emplear en **VICAL** debe tener tener activado la casilla “Anyone can read” (Figura \@ref(fig:figG13)). 
+
+```{r figG13, fig.cap='poligono digitalizadas', echo=FALSE, out.width="75%", message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/Figure6.png")
+```
+
+

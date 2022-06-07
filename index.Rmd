@@ -1,0 +1,45 @@
+--- 
+title: "GUIA DE VICAL: Calculadora de indices de vegetación"
+author: "INIFAP: Sergio Jiménez-Jiménez; Mariana Marcial-Pablo; Waldo Ojeda-Bustamante; Ernesto Sifuentes-Ibarra; Marco Inzunza-Ibarra, Ignacio Sánchez-Cohen"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+logo: ./images/LogoVICAL.png
+lang: es-MX
+output: bookdown::gitbook
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=2in,height=2in]{./images/1.png}\LARGE\\}
+  - \posttitle{\end{center}}
+geometry: margin=2cm
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "Esta es una guia de lo que se pueda hacer con VICAL"
+---
+
+# Bienvenidos {-}
+
+```{r fig1, echo=FALSE, message=FALSE, warning=FALSE, fig.align = 'center'}
+knitr::include_graphics("./images/LogoVICAL.png")
+```
+
+Este sitio es una _guía_ para usar la herramienta **VICAL** desarrollada dentro de Google Earth Engine (GEE). VICAL es util para calcular de manera **online** 23 índices de vegetación (empleados comúnmente en aplicaciones agrícolas) de cualquier poligono(s) del mundo (digitalizado por el usuario o archivo vector) usando imágenes LandSat y Sentinel-2. Esto se logra sin que el usuario descargue/cargue imágenes satelitales o escriba una solo línea de código, solo necesita tener una conexión a internet. 
+
+Puede accesar a **VICAL** desde la dirección 
+<https://inifapcenidraspa.users.earthengine.app/view/vical>
+
+
+```{r fig2, fig.cap='Vista principal de VICAL', echo=FALSE, message=FALSE, warning=FALSE, out.width="90%", fig.align = 'center'}
+knitr::include_graphics("./images/Figure4.png")
+```
+
+Este trabajo fue desarrollado por investigadores del **INIFAP CENID-RASPA** y **CEVAF**. Dentro de las mejoras que se planean en VICAL, es que mediante experimentación se logre la calibración de variables biofísicas de interés para diversos cultivos usando _indices de vegetacion (IV)_; y estos resultados estén disponibles en **VICAL** para que sea útil a otras personas y asi puedan monitorear facilmente variables relacionadas con ingenieria de riego. 
+
+
+_Vuelva a consultar de vez en cuando para conocer las nuevas aplicaciones de GEE, los scripts de ejemplo y las actualizaciones de VICAL. Puede intentar hacer una actualización completa en el sitio para asegurarse de ver los cambios recientes (lo que está viendo podría ser una versión del sitio previamente almacenada en caché)_
+
+_Sí tiene alguna duda o sugerencia o quiere participar en el proyecto puede escribir al correo **jimenez.sergio@inifap.gob.mx**_
+

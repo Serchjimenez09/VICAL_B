@@ -1,0 +1,124 @@
+# Indices de Vegetación {#Iveg} 
+Los IVs permiten la relación cuantitativa y funcional con diferentes parámetros o variables de la vegetación. Son 23 IV considerados en VICAL y son los que comunmente se utilizan en aplicaciones agricolas [@Bannari2009],[@Xue2017].
+
+Los nombres de estos indices asi como su abreviatura se muestran en la siguiente lista:  
+**1: ARVI**: Atmospherically resistant vegetation index*
+$$
+ARVI = \frac{p(NIR-rb)}{NIR+rb};     
+$$
+$$
+rb = {R-γ(B-R)}; \thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace γ=1.0 
+$$
+
+**2: ATSAVI**: Adjusted transformed soil-adjusted vegetation index*
+$$
+ATSAVI = \frac{a(NIR-aR-b)}{(R+aNIR-ab+X(1+a^2))};
+$$
+$$
+\thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace a= 1 ;\thinspace b=0; \thinspace X= 0.08      
+$$
+**3: DVI: ** Difference vegetation index
+$$
+DVI = {(NIR-R)} ;   
+$$
+**4: EVI***: Enhanced vegetation index
+$$
+EVI = \frac{2.5*(NIR-R)}{NIR+C_1 R-C_2 B+L};     
+$$
+$$
+\thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace C_1= 6.0 ;\thinspace C_2=7.5; \thinspace L= 1.0      
+$$
+**5: EVI2***: Enhanced vegetation index
+$$
+EVI2 = \frac{2.5*(NIR-R)}{NIR+C_1 R+1}; \thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace C_1= 2.4      
+$$
+**6: GNDVI**: Green normalized difference vegetation index
+$$
+GNDVI = \frac{NIR-G}{NIR+G};     
+$$
+**7: MSAVI2**: Modified soil adjusted vegetation index
+$$
+MSAVI2 = \frac{(2NIR+1)-\sqrt((2NIR+1)^2-8(NIR-R))}{2};     
+$$
+**8: MSI**: Moisture stress index
+$$
+MSI = \frac{SWIR_1}{NIR};     
+$$
+**9: MTVI**: Modiﬁed triangular vegetation index
+$$
+MTVI ={1.2[1.2*(NIR-G)-2.5*(R-G)]};     
+$$
+
+**10: MTVI2**: Modiﬁed triangular vegetation index-2
+$$
+MTVI2 = \frac{1.2[1.2*(NIR-G)-2.5*(R-G)]}{\sqrt((2NIR+1)^2-(6NIR-5\sqrt(R))-0.5)};     
+$$
+**11: NDTI**: Normalized difference tillage index (NDTI)
+$$
+NDTI = \frac{SWIR_1-SWIR_2}{SWIR_1+SWIR_2};     
+$$
+**12: NDVI**: Normalized difference vegetation index
+$$
+NDVI = \frac{NIR-R}{NIR+R};     
+$$
+**13: NDWI**: Normalized difference water index
+$$
+NDWI = \frac{NIR-SWIR_1}{NIR+SWIR_1};     
+$$
+**14: OSAVI**: Optimized soil adjusted vegetation index*
+$$
+OSAVI = \frac{1.16*(NIR-R)}{NIR+R+X}; \thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace X= 0.16     
+$$
+**15: RDVI**: Renormalized difference vegetation index
+$$
+RDVI = \frac{NIR-R}{\sqrt(NIR+R)};     
+$$
+**16: RI**: Redness index
+$$
+RI = \frac{p(NIR-G)}{NIR+G};     
+$$
+**17: RVI**:  Ratio vegetation index
+$$
+RVI = \frac{R}{NIR};     
+$$
+**18: SAVI***: Soil adjusted vegetation index
+$$
+SAVI = \frac{(NIR-R)}{NIR+R+L} (1+ L);    \thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace L= 0.5  
+$$
+**19: TVI**: Triangular vegetation index
+$$
+TVI = 0.5*{[120(NIR-G)-200(R-G)]};     
+$$
+**20: TSAVI***: Transformed soil adjusted vegetation index
+$$
+TSAVI = \frac{a(NIR-aR-b)}{R+aNIR-ab};  \thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace a= 1,   \thinspace b=0.    
+$$
+**21: VARI**: Visible atmospherically resistant index
+$$
+VARI = \frac{G-R}{G+R-B};     
+$$
+**22: VIN**: Vegetation index number or simple ratio
+$$
+VIN = \frac{NIR}{R};     
+$$
+**23: WDRVI***:  Wide dynamic range vegetation index
+$$
+WDRVI = \frac{∝NIR-R}{∝NIR+R)}; \thinspace \thinspace  Valor \thinspace por \thinspace defecto: \thinspace ∝= 0.2   
+$$
+
+VICAL permite al usuario configurar algunos parámetros de VIs (como **ARVI, ATSAVI, EVI, EVI2, OSAVI, SAVI, ATSAVI y WDRVI**), es decir, todos aquellos IVs que necesitan, además de las bandas de espectro, alguna variable de ajuste
+
+El nombre de las bandas con las abreviaturas que se emplearon en las ecuaciones de los IVs se muestra en la Tabla \@ref(tab:inOMBRE).
+```{r inOMBRE, echo=FALSE, message=FALSE, warning=FALSE,}
+Abreviatura<-c("B",	"G",	"R",	"RE",	"NIR",	"SWIR1",	"SWIR2")
+Nombre <-c("Azul/Blue",	"Verde/Green",	"Rojo/Red",	"Borde Rojo/Red edge",	"Infrarrojo Cercano /Near infrared",	"Infrarrojo de onda corta 1/Shortwave infrared 1 ",	"Infrarrojo de onda corta 2/Shortwave infrared 2")
+
+inOMBRE<-data.frame(Abreviatura,Nombre)
+
+knitr::kable(inOMBRE, booktabs = TRUE, 
+  caption = 'Abreviatura de las bandas espectrales empleadas en las ecuaciones de los IV'
+) 
+```
+
+
+_Si deseas agregar algun indice de vegetación puedes escribirnos al correo jimenez.sergio@inifap.gob.mx_
